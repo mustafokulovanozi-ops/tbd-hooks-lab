@@ -1,19 +1,30 @@
 {
   "name": "tbd-hooks-lab",
   "version": "1.0.0",
-  "description": "Учебный проект: Trunk-Based воркфлоу и pre-commit hooks",
   "type": "module",
   "scripts": {
+    "prepare": "husky",
     "test": "node --test",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
-  "license": "ISC",
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "eslint": "^10.14.0",
-    "globals": "^17.14.0",
-    "prettier": "^3.9.10"
+    "@commitlint/cli": "^19.0.0",
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "globals": "^15.0.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.0.0",
+    "prettier": "^3.0.0"
   }
 }
